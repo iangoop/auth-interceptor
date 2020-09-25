@@ -9,13 +9,13 @@ AngularJS Http Interceptor for managing security tokens in an SPA Architecture.
 
 ## Installation
 ```
-npm install --save auth-interceptor
+npm install --save angularjs-auth-interceptor
 ```
 
 ## Configuration
 Import the minified script from ```dist/auth-interceptor.min.js``` to your page
 ```html
-<script src="node_modules/auth-interceptor/dist/auth-interceptor.min.js"></script>
+<script src="node_modules/angularjs-auth-interceptor/dist/auth-interceptor.min.js"></script>
 ```
 Add the module ```authInterceptor``` as dependency of your main application module 
 ```js

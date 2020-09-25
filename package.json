@@ -1,5 +1,5 @@
 {
-  "name": "auth-interceptor",
+  "name": "angularjs-auth-interceptor",
   "version": "1.0.0",
   "description": "AngularJS http interceptor to set csrf and bearer token",
   "main": "index.js",
