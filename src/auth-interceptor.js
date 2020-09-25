@@ -158,7 +158,9 @@
                 request: function(config) {
                     if (auth.shouldBeIntercepted(config.method)) {
                         var parameters = auth.getParameters();
-                        config.headers[parameters.csrfKey] = parameters.csrf;
+                        if (parameters.csrf) {
+                            config.headers[parameters.csrfKey] = parameters.csrf;
+                        }
                         if (parameters.auth) {
                             config.headers.Authorization = 'Bearer ' + parameters.auth;
                         }

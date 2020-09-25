@@ -4,7 +4,8 @@
   "description": "AngularJS http interceptor to set csrf and bearer token",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "test": "karma start --single-run"
   },
   "repository": {
     "type": "git",
