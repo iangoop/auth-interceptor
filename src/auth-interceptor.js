@@ -47,7 +47,7 @@
             }
 
             function load() {
-                parameters = angular.extend({}, settings, defaults);
+                parameters = angular.extend({}, defaults, settings);
                 if (parameters.csrfCookie) {
                     parameters.csrf = cookie(parameters.csrfCookie);
                 }

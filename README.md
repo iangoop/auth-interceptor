@@ -45,17 +45,25 @@ Check out the complete list of options in the [Options](#options) section below.
 ## Usage
 Once configured, the interceptor will automatically capture the requests made via 
 $http within the controllers, attaching a csrf token and a Bearer token, 
-if the interceptor was configured to do so. If a request made returns an 
+if the interceptor was configured to do so. If the request made returns an 
 401 error, the interceptor will attempt to refresh the request, by making a 
-new request to the url set in `refreshUrl` parameter, that must return a json containing 
-the key `token`. If the request to the `refreshUrl` returns an 401 error as well, 
+new POST request to the url set in `refreshUrl` parameter, that must return a json containing 
+the key `token`. If the request to the `refreshUrl` also returns an 401 error, 
 the interceptor will store the current url in sessionStorage and can be configured 
 to redirect the page to the login page. If any of the requests are rejected by other 
 means, the interceptor can be configured to redirect to an error page.
 
+#### Token request example (NodeJS)
+
+```js
+app.post('/token', (req, res) => {
+  res.json({'token':'your_auth_token_here'});
+});
+```
+
 ## Options
 The options available to be set are:
-- `refreshUrl` (String): The url which will be called in case of 401 error is thrown from the original request, 
+- `refreshUrl` (String): The url which will be called (via POST) in case of 401 error is thrown from the original request, 
 that must return a json response containing the key `token` with the Bearer token to be attached in 
 the original request. Default: `/token`
 - `redirectToLogin` (Boolean): If it is set to true, the interceptor will redirect to the login page in case of 
